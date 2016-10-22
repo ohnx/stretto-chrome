@@ -1,0 +1,51 @@
+{
+  "name": "Stretto-Chrome",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Stretto integration for Google Chrome!",
+  "homepage_url": "https://github.com/ohnx/stretto-chrome",
+  "options_page": "src/options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Open page"
+  },
+  "commands": {
+    "playpause": {
+      "suggested_key": {
+        "default": "MediaPlayPause"
+      },
+      "description": "Play/Pause",
+      "global": true
+    },
+    "next": {
+      "suggested_key": {
+        "default": "MediaNextTrack"
+      },
+      "description": "Next Track",
+      "global": true
+    },
+    "prev": {
+      "suggested_key": {
+        "default": "MediaPrevTrack"
+      },
+      "description": "Previous Track",
+      "global": true
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}
