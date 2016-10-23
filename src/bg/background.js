@@ -7,7 +7,7 @@ var dirJoin = function(a, b) {
 }
 
 chrome.commands.onCommand.addListener(function(command) {
-    chrome.storage.sync.get({
+    chrome.storage.local.get({
         remoteUrl: "",
         remoteName: ""
     }, function(items) {
@@ -33,7 +33,7 @@ chrome.commands.onCommand.addListener(function(command) {
 });
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.storage.sync.get({
+    chrome.storage.local.get({
         remoteUrl: ""
     }, function(items) {
         if (items.remoteUrl == "") { alert('Please set a location in the settings.'); return; }

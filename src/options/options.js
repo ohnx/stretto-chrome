@@ -6,7 +6,7 @@ function save_options() {
     remoteUrl = 'http://' + remoteUrl;
     document.getElementById('remote-url').value = remoteUrl;
   }
-  chrome.storage.sync.set({
+  chrome.storage.local.set({
     remoteUrl: remoteUrl,
     remoteName: remoteName
   }, function() {
@@ -22,8 +22,7 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
-  chrome.storage.sync.get({
+  chrome.storage.local.get({
     remoteUrl: 'https://example.com/',
     remoteName: null
   }, function(items) {
@@ -31,5 +30,10 @@ function restore_options() {
     document.getElementById('remote-name').value = items.remoteName;
   });
 }
+
+function checkKB(e) {
+    if (e.keyCode == 13) save_options();
+}
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
+window.addEventListener("keyup", checkKB, false);
